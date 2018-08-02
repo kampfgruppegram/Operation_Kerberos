@@ -18,8 +18,36 @@ private _return = [];
 
 switch (_presetName) do {
     case "vehicles_west" : {
+        _blacklist = [
+           "B_Static_Designator_01_F",
+            "B_Radar_System_01_F",
+            "RHS_Stinger_AA_pod_D",
+            "B_G_Offroad_01_repair_F",
+            "I_G_Offroad_01_AT_F",
+            "RHS_M119_D",
+            "RHS_M252_D",
+            "RHS_M2StaticMG_D",
+            "RHS_M2StaticMG_MiniTripod_D",
+            "RHS_TOW_TriPod_D",
+            "Redd_Milan_Static",
+            "B_SAM_System_03_F",
+            "B_static_AT_F",
+            "B_static_AA_F",
+            "RHS_MK19_TriPod_D",
+            "B_SAM_System_02_F",
+            "B_Ship_MRLS_01_F",
+            "B_Ship_Gun_01_F",
+            "B_SAM_System_01_F",
+            "B_Mortar_01_F",
+            "B_AAA_System_01_F",
+            "ACE_B_SpottingScope",
+            "C_Van_01_fuel_F",
+            "C_Van_02_vehicle_F",
+            "C_Van_02_transport_F",
+            "C_Van_01_transport_F"
+        ];
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
-        _return = _return apply {configName _x};
+        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
     };
     case "vehicles_west_public" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')})", true];
@@ -28,8 +56,13 @@ switch (_presetName) do {
         _return = _return select {!((toLower _x) in ["b_sam_system_01_f","b_sam_system_02_f","b_aaa_system_01_f"])};
     };
     case "air_west" : {
+        _blacklist = [
+            "B_UAV_06_F",
+            "B_UAV_06_medical_F",
+            "B_UAV_01_F"
+        ];
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
-        _return = _return apply {configName _x};
+        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
     };
     case "carrier_west" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
@@ -43,10 +76,29 @@ switch (_presetName) do {
         _return = _return apply {configName _x};
     };
     case "logistic_1_west" : {
+        _blacklist = [
+            "C_Van_01_transport_F",
+            "C_Van_01_fuel_F",
+            "C_Van_02_vehicle_F",
+            "C_Van_02_transport_F",
+            "B_Truck_01_mover_F",
+            "rhsusf_M1078A1P2_WD_fmtv_usarmy",
+            "rhsusf_M1083A1P2_WD_fmtv_usarmy",
+            "rhsusf_M1084A1P2_WD_fmtv_usarmy",
+            "rhsusf_M1078A1P2_D_fmtv_usarmy",
+            "rhsusf_M1083A1P2_D_fmtv_usarmy",
+            "rhsusf_M1084A1P2_D_fmtv_usarmy",
+            "rhsusf_M1220_usarmy_d",
+            "rhsusf_M1230_M2_usarmy_d",
+            "rhsusf_M977A4_usarmy_wd",
+            "rhsusf_M978A4_usarmy_wd",
+            "rhsusf_M977A4_usarmy_d",
+            "rhsusf_M978A4_usarmy_d"
+        ];
         _return = (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'StaticWeapon'}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Slingload_01_Base_F')||{((configName _x) isKindOf 'Pod_Heli_Transport_04_base_F')}})", true]);
-        _return = _return apply {configName _x};
+        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
         _return append ["Box_NATO_AmmoVeh_F"];
@@ -54,10 +106,29 @@ switch (_presetName) do {
     };
 
     case "logistic_2_west" : {
+        _blacklist = [
+            "C_Van_01_transport_F",
+            "C_Van_01_fuel_F",
+            "C_Van_02_vehicle_F",
+            "C_Van_02_transport_F",
+            "B_Truck_01_mover_F",
+            "rhsusf_M1078A1P2_WD_fmtv_usarmy",
+            "rhsusf_M1083A1P2_WD_fmtv_usarmy",
+            "rhsusf_M1084A1P2_WD_fmtv_usarmy",
+            "rhsusf_M1078A1P2_D_fmtv_usarmy",
+            "rhsusf_M1083A1P2_D_fmtv_usarmy",
+            "rhsusf_M1084A1P2_D_fmtv_usarmy",
+            "rhsusf_M1220_usarmy_d",
+            "rhsusf_M1230_M2_usarmy_d",
+            "rhsusf_M977A4_usarmy_wd",
+            "rhsusf_M978A4_usarmy_wd",
+            "rhsusf_M977A4_usarmy_d",
+            "rhsusf_M978A4_usarmy_d"
+        ];
         _return = (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'StaticWeapon'}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Slingload_01_Base_F')||{((configName _x) isKindOf 'Pod_Heli_Transport_04_base_F')}})", true]);
-        _return = _return apply {configName _x};
+        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
         _return append ["Box_NATO_AmmoVeh_F"];
