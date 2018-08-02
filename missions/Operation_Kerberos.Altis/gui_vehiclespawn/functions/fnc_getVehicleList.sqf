@@ -19,7 +19,7 @@ private _return = [];
 switch (_presetName) do {
     case "vehicles_west" : {
         _blacklist = [
-           "B_Static_Designator_01_F",
+            "B_Static_Designator_01_F",
             "B_Radar_System_01_F",
             "RHS_Stinger_AA_pod_D",
             "B_G_Offroad_01_repair_F",
@@ -47,7 +47,7 @@ switch (_presetName) do {
             "C_Van_01_transport_F"
         ];
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')||((configName _x) isKindOf 'StaticWeapon')})", true];
-        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
+        _return = (_return select { !((configName _x) in _blacklist) }) apply {configName _x};
     };
     case "vehicles_west_public" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Tank_F')||((configName _x) isKindOf 'Car')})", true];
@@ -62,7 +62,7 @@ switch (_presetName) do {
             "B_UAV_01_F"
         ];
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
-        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
+        _return = (_return select { !((configName _x) in _blacklist) }) apply {configName _x};
     };
     case "carrier_west" : {
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
@@ -98,7 +98,7 @@ switch (_presetName) do {
         _return = (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'StaticWeapon'}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Slingload_01_Base_F')||{((configName _x) isKindOf 'Pod_Heli_Transport_04_base_F')}})", true]);
-        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
+        _return = (_return select { !((configName _x) in _blacklist) }) apply {configName _x};
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
         _return append ["Box_NATO_AmmoVeh_F"];
@@ -128,7 +128,7 @@ switch (_presetName) do {
         _return = (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{(configName _x) isKindOf 'StaticWeapon'}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'side')==1}&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Truck_F')}&&{!(getText(_x>>'vehicleClass')=='Autonomous')})", true])
                 + (configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{((configName _x) isKindOf 'Slingload_01_Base_F')||{((configName _x) isKindOf 'Pod_Heli_Transport_04_base_F')}})", true]);
-        _return = _return apply {configName _x && !((configName _x) in _blacklist)};
+        _return = (_return select { !((configName _x) in _blacklist) }) apply {configName _x};
         private _ace = ["ACE_medicalSupplyCrate","ACE_medicalSupplyCrate_advanced","ACE_Box_Misc","ACE_Box_Ammo","ACE_Track","ACE_Wheel","ACE_Box_82mm_Mo_Combo","ACE_Box_82mm_Mo_HE","ACE_Box_82mm_Mo_Illum","ACE_Box_82mm_Mo_Smoke"] select {isClass(configFile >> "CfgVehicles" >> _x)};
         _return append _ace;
         _return append ["Box_NATO_AmmoVeh_F"];
