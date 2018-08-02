@@ -57,7 +57,7 @@ if sys.platform == "win32":
     import winreg
 
 ######## GLOBALS #########
-project = "@dorb"
+project = "@kgg"
 project_version = "1.0.0"
 arma3tools_path = ""
 work_drive = ""
@@ -66,11 +66,11 @@ make_root = ""
 release_dir = ""
 module_root_parent = ""
 optionals_root = ""
-key_name = "dorb"
+key_name = "kgg"
 key = ""
 dssignfile = ""
-prefix = "dorb"
-pbo_name_prefix = "dorb_"
+prefix = "lgg"
+pbo_name_prefix = "kgg_"
 signature_blacklist = []
 importantFiles = ["README.md", "LICENSE"]
 versionFiles = ["README.md"]

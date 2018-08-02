@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# created by AC3Team/CBATeam; taken from https://github.com/acemod/ACE3/blob/master/tools/config_style_checker.py
+
 import fnmatch
 import os
 import re
@@ -7,11 +9,13 @@ import ntpath
 import sys
 import argparse
 
+
 def check_config_style(filepath):
     bad_count_file = 0
+
     def pushClosing(t):
         closingStack.append(closing.expr)
-        closing << Literal( closingFor[t[0]] )
+        closing << Literal(closingFor[t[0]])
 
     def popClosing():
         closing << closingStack.pop()
@@ -101,7 +105,7 @@ def check_config_style(filepath):
 
             else: # Look for the end of our comment block
                 if (c == '*'):
-                    checkIfNextIsClosingBlock = True;
+                    checkIfNextIsClosingBlock = True
                 elif (checkIfNextIsClosingBlock):
                     if (c == '/'):
                         isInCommentBlock = False
@@ -120,40 +124,37 @@ def check_config_style(filepath):
             bad_count_file += 1
     return bad_count_file
 
-def main():
 
+def main():
     print("Validating Config Style")
 
     sqf_list = []
     bad_count = 0
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-m','--module', help='only search specified module addon folder', required=False, default="")
+    parser.add_argument(
+        '-m', '--module', help='only search specified module addon folder',
+        required=False, default="")
     args = parser.parse_args()
 
     # Allow running from root directory as well as from inside the tools directory
-    rootDir = "../missions"
-    if (os.path.exists("missions")):
-        rootDir = "missions"
-    for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
-        for filename in fnmatch.filter(filenames, '*.cpp'):
-            sqf_list.append(os.path.join(root, filename))
-        for filename in fnmatch.filter(filenames, '*.hpp'):
-            sqf_list.append(os.path.join(root, filename))
-
     rootDir = "../addons"
     if (os.path.exists("addons")):
         rootDir = "addons"
-    for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
+
+    for root, dirnames, filenames in os.walk(rootDir):
         for filename in fnmatch.filter(filenames, '*.cpp'):
             sqf_list.append(os.path.join(root, filename))
         for filename in fnmatch.filter(filenames, '*.hpp'):
+            sqf_list.append(os.path.join(root, filename))
+        for filename in fnmatch.filter(filenames, '*.ext'):
             sqf_list.append(os.path.join(root, filename))
 
     for filename in sqf_list:
         bad_count = bad_count + check_config_style(filename)
 
-    print("------\nChecked {0} files\nErrors detected: {1}".format(len(sqf_list), bad_count))
+    print("------\nChecked {0} files\nErrors detected: {1}".format(
+        len(sqf_list), bad_count))
     if (bad_count == 0):
         print("Config validation PASSED")
     else:

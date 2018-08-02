@@ -12,7 +12,7 @@
     "CHECKBOX",
     [LSTRING(fastArsenalLoading), LSTRING(fastArsenalLoading_tooltip)],
     "Operation Kerberos",
-    false,
+    true,
     2
 ] call cba_settings_fnc_init;
 

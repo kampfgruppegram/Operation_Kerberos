@@ -37,7 +37,23 @@ switch (str(side player)) do {
             _id
         ] call EFUNC(gui,addNotification);
 
-        _id = ["logistic_west",logistic_west] call FUNC(registerSpawn);
+        _id = ["logistic_1_west",logistic_1_west] call FUNC(registerSpawn);
+        [
+            LSTRING(NAME_LOGISTIC),
+            ELSTRING(gui_main,CATEGORY_DEPOT),
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_logistic.paa',
+            LINKFUNC(openMenu),
+            LINKFUNC(canOpenMenu),
+            _id
+        ] call EFUNC(gui_main,addApp);
+        [
+            format[QGVAR(interface_%1),_id],
+            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_logistic.paa',
+            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
+            _id
+        ] call EFUNC(gui,addNotification);
+
+        _id = ["logistic_2_west",logistic_2_west] call FUNC(registerSpawn);
         [
             LSTRING(NAME_LOGISTIC),
             ELSTRING(gui_main,CATEGORY_DEPOT),

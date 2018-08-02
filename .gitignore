@@ -12,3 +12,5 @@ privatekeys/*
 temp/*
 **/~*
 *.zip
+.build/
+.builds/
