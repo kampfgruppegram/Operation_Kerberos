@@ -166,7 +166,7 @@ If ((_unittype isKindOf "LandVehicle")||{_unittype isKindOf "Ship_F"}) exitWith 
                 {isClass(configFile >> "CfgVehicles" >> _unittype >> "ACE_Actions" >> "ACE_MainActions" >> "ACE_Rearm_TakeAmmo")}
             )||
             {
-                (!isNil {_object getUnitTrait "Medic"})&&{
+                (!isNil {_object getUnitTrait "Medic"})&& !isNull _object && {
                     ([_object] call ace_medical_fnc_isMedic)||
                     {[_object] call ACE_rearm_fnc_canTakeAmmo}
                 }
