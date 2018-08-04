@@ -153,7 +153,7 @@ force ace_medical_ai_enabledFor = 0;
 force ace_medical_AIDamageThreshold = 1;
 force ace_medical_allowLitterCreation = true;
 force ace_medical_allowUnconsciousAnimationOnTreatment = false;
-force ace_medical_amountOfReviveLives = 2;
+force ace_medical_amountOfReviveLives = -1;
 force ace_medical_bleedingCoefficient = 1;
 force ace_medical_blood_enabledFor = 2;
 force ace_medical_consumeItem_PAK = 1;
@@ -340,7 +340,7 @@ force ace_vehiclelock_lockVehicleInventory = false;
 force ace_vehiclelock_vehicleStartingLockState = -1;
 
 // ACE View Distance Limiter
-force ace_viewdistance_enabled = true;
+force ace_viewdistance_enabled = false;
 force ace_viewdistance_limitViewDistance = 10000;
 force ace_viewdistance_objectViewDistanceCoeff = 0;
 ace_viewdistance_viewDistanceAirVehicle = 1000;
