@@ -19,7 +19,7 @@ class CfgComponents {
     grouptracker = 1;
     player = 1;
     teamkilling = 1;
-    viewrestriction = 1;
+    viewrestriction = 0;
     doorbreach = 1;
     whitelist = 1;
     ai_skill = 1;
@@ -29,14 +29,14 @@ class CfgComponents {
     missionobjects = 1;
     headquarter = 1;
     /// mod specific components
-    mod_ace = 1;
-    mod_acre = 1;
-    mod_asrai = 1;
-    mod_rhs = 1;
-    mod_tfar = 1;
+    mod_ace = 0;
+    mod_acre = 0;
+    mod_asrai = 0;
+    mod_rhs = 0;
+    mod_tfar = 0;
     patch_acre = 1;
     patch_bwa3 = 1;
-    mod_bw = 1;
+    mod_bw = 0;
 
     gui = 1;
     gui_main = 1;
