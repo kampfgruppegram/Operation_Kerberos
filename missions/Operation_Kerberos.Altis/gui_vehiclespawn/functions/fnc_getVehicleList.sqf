@@ -59,7 +59,13 @@ switch (_presetName) do {
         _blacklist = [
             "B_UAV_06_F",
             "B_UAV_06_medical_F",
-            "B_UAV_01_F"
+            "B_UAV_01_F",
+            "B_UAV_05_F",
+            "B_T_UAV_03_F",
+            "B_T_UAV_03_dynamicLoadout_F",
+            "B_UAV_02_F",
+            "B_UAV_02_CAS_F",
+            "B_uAV_02_dynamicLoadout_F"
         ];
         _return = configProperties [configfile>>"CfgVehicles","((isClass _x)&&{getNumber(_x>>'scope')>1}&&{getNumber(_x>>'side')==1}&&{((configName _x) isKindOf 'Air')})", true];
         _return = (_return select { !((configName _x) in _blacklist) }) apply {configName _x};
