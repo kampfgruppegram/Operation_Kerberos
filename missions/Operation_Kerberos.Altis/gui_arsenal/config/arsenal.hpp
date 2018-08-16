@@ -9,7 +9,6 @@ class GVARMAIN(arsenal) {
         "ACE_key_civ","ACE_key_east","ACE_key_indp","ACE_key_lockpick","ACE_key_master","ACE_key_west",
         "U_B_Protagonist_VR","U_I_Protagonist_VR","U_O_Protagonist_VR",
         "rhsusf_hgu56p_mask_pink","rhsusf_hgu56p_pink","rhsusf_hgu56p_visor_mask_pink","rhsusf_hgu56p_visor_pink",
-        "MineDetector",
 
         // weapons
         "launch_B_Titan_F","launch_B_Titan_short_F","launch_B_Titan_short_tna_F","launch_B_Titan_tna_F",
@@ -39,7 +38,7 @@ class GVARMAIN(arsenal) {
         "V_EOD_coyote_F","V_EOD_olive_F",
         "H_PASGT_basic_olive_F",
         "V_HarnessOGL_brn","V_HarnessOGL_gry","V_HarnessO_gry","V_HarnessO_brn",
-        "rhs_acc_npz",
+        "rhs_acc_npz"
 
         // weapons
 
