@@ -12,6 +12,7 @@ force ace_advanced_fatigue_enableStaminaBar = false;
 force ace_advanced_fatigue_loadFactor = 1;
 force ace_advanced_fatigue_performanceFactor = 2;
 force ace_advanced_fatigue_recoveryFactor = 2;
+ace_advanced_fatigue_swayFactor = 1;
 force ace_advanced_fatigue_terrainGradientFactor = 1;
 
 // ACE Advanced Throwing
@@ -97,6 +98,7 @@ force ace_interact_menu_colorTextMin = [1,1,1,0.25];
 force ace_interact_menu_cursorKeepCentered = false;
 force ace_interact_menu_menuAnimationSpeed = 0;
 force ace_interact_menu_menuBackground = 0;
+ace_interact_menu_selectorColor = [1,0,0];
 force ace_interact_menu_shadowSetting = 2;
 force ace_interact_menu_textSize = 2;
 force ace_interact_menu_useListMenu = false;
@@ -104,6 +106,8 @@ force ace_interact_menu_useListMenu = false;
 // ACE Logistics
 force ace_cargo_enable = true;
 force ace_cargo_paradropTimeCoefficent = 2.5;
+force ace_rearm_level = 0;
+force ace_rearm_supply = 0;
 force ace_refuel_hoseLength = 12;
 force ace_refuel_rate = 1;
 force ace_repair_addSpareParts = true;
@@ -192,7 +196,7 @@ force ace_medical_remoteControlledAI = false;
 force ace_medical_useCondition_PAK = 1;
 force ace_medical_useCondition_SurgicalKit = 0;
 force ace_medical_useLocation_basicEpi = 0;
-force ace_medical_useLocation_PAK = 0;
+force ace_medical_useLocation_PAK = 2;
 force ace_medical_useLocation_SurgicalKit = 0;
 
 // ACE Mk6 Mortar
@@ -237,7 +241,8 @@ force ace_finger_indicatorForSelf = true;
 force ace_finger_maxRange = 4;
 
 // ACE Pylons
-force ace_pylons_enabled = true;
+ace_pylons_enabledForZeus = true;
+ace_pylons_enabledFromAmmoTrucks = true;
 force ace_pylons_rearmNewPylons = false;
 force ace_pylons_requireEngineer = false;
 force ace_pylons_requireToolkit = true;
@@ -249,10 +254,6 @@ force ace_quickmount_distance = 3;
 force ace_quickmount_enabled = false;
 force ace_quickmount_priority = 0;
 force ace_quickmount_speed = 18;
-
-// ACE Rearm
-force ace_rearm_level = 0;
-force ace_rearm_supply = 0;
 
 // ACE Respawn
 force ace_respawn_removeDeadBodiesDisconnected = true;
@@ -343,9 +344,9 @@ force ace_vehiclelock_vehicleStartingLockState = -1;
 force ace_viewdistance_enabled = false;
 force ace_viewdistance_limitViewDistance = 10000;
 force ace_viewdistance_objectViewDistanceCoeff = 0;
-ace_viewdistance_viewDistanceAirVehicle = 1000;
-ace_viewdistance_viewDistanceLandVehicle = 1000;
-ace_viewdistance_viewDistanceOnFoot = 1000;
+ace_viewdistance_viewDistanceAirVehicle = 0;
+ace_viewdistance_viewDistanceLandVehicle = 0;
+ace_viewdistance_viewDistanceOnFoot = 0;
 
 // ACE Weapons
 ace_common_persistentLaserEnabled = false;
@@ -371,90 +372,48 @@ force ace_zeus_revealMines = 0;
 force ace_zeus_zeusAscension = false;
 force ace_zeus_zeusBird = false;
 
-// ACEX Headless
-force acex_headless_delay = 15;
-force acex_headless_enabled = true;
-force acex_headless_endMission = 0;
-force acex_headless_log = false;
-
-// ACEX Sitting
-force acex_sitting_enable = true;
-
-// ACEX View Restriction
-force acex_viewrestriction_mode = 0;
-force acex_viewrestriction_modeSelectiveAir = 0;
-force acex_viewrestriction_modeSelectiveFoot = 0;
-force acex_viewrestriction_modeSelectiveLand = 0;
-force acex_viewrestriction_modeSelectiveSea = 0;
-
-// ACEX Volume
-force acex_volume_enabled = false;
-force acex_volume_fadeDelay = 1;
-force acex_volume_lowerInVehicles = false;
-force acex_volume_reduction = 5;
-force acex_volume_remindIfLowered = false;
-force acex_volume_showNotification = true;
-
-// Achilles - Curator Vision Modes
-achilles_curator_vision_blackhot = true;
-achilles_curator_vision_blackhotgreencold = true;
-achilles_curator_vision_blackhotredcold = true;
-achilles_curator_vision_greenhotcold = true;
-achilles_curator_vision_nvg = true;
-achilles_curator_vision_redgreen = true;
-achilles_curator_vision_redhot = true;
-achilles_curator_vision_whitehot = true;
-achilles_curator_vision_whitehotredcold = true;
-
-// Achilles - Modules Interface
-Achilles_var_moduleTreeCollapse = true;
-Achilles_var_moduleTreeDLC = true;
-Achilles_var_moduleTreeHelmet = false;
-
-// Boxloader
-boxloader_allrepair_height = 5;
-boxloader_allrepair_load = true;
-boxloader_allrepair_push = 10000;
-boxloader_allrepair_weight = 10000;
-boxloader_allrepair_work = true;
-boxloader_hidecargo_enabled = true;
-boxloader_maxload_enabled = false;
-boxloader_maxload_lift = 50;
-boxloader_maxload_minpush = 10;
-boxloader_maxload_overhead = 30;
-boxloader_maxload_push = 200;
-boxloader_push_enabled = true;
-boxloader_retrofit_enabled = true;
+// ADV - ACE Splint
+adv_aceSplint_enable = true;
+adv_aceSplint_reopenChance_medic = 0;
+adv_aceSplint_reopenChance_regular = 30;
+adv_aceSplint_reopenTime = 600;
+adv_aceSplint_reuseChance = 80;
 
 // Bundeswehr
+BWA3_Leopard_ClocknumbersDir_Commander = false;
 BWA3_NaviPad_showMembers = true;
-
-// dzn Artillery Illumination
-dzn_Flares_H_Color = [1,1,0.5];
-dzn_Flares_H_Deviation = 25;
-dzn_Flares_H_Enabled = true;
-dzn_Flares_H_Intensity = 2;
-dzn_Flares_H_ListSetting = "StaticCannon, rhs_2s3tank_base";
-dzn_Flares_H_Range = 450;
-dzn_Flares_M_Color = [1,1,0.5];
-dzn_Flares_M_Deviation = 25;
-dzn_Flares_M_Enabled = true;
-dzn_Flares_M_Intensity = 2;
-dzn_Flares_M_ListSetting = "StaticMortar, Mortar_01_base_F, CUP_B_M1129_MC_MK19_Desert, CUP_B_M1129_MC_MK19_Woodland";
-dzn_Flares_M_Range = 400;
-
-// Laxemann Suppress
-force L_Suppress_enabled = true;
-
-// MRHSatellite Options
-MRH_SAT_allowFullscreen = true;
-MRH_SAT_allowLasering = true;
-MRH_SAT_allowTargetDetection = true;
-MRH_SAT_allowTargetTracking = true;
-MRH_SAT_MaxSatAltitude = 300;
+BWA3_Puma_ClocknumbersDir_Commander = false;
+BWA3_Puma_ClocknumbersDir_Gunner = false;
+BWA3_usePipOptics = true;
 
 // NIArms
 force niarms_magSwitch = true;
+
+// Operation Kerberos
+force dorb_ai_skill_accuracy = 0.6;
+force dorb_ai_skill_active = true;
+force dorb_ai_skill_general = 0.9;
+force dorb_ai_skill_handling = 0.65;
+force dorb_ai_skill_spotting = 0.6;
+dorb_groundactions_active = true;
+force dorb_grouptracker_active = true;
+force dorb_grouptracker_AiIsVisible = true;
+force dorb_grouptracker_delayAmount = 3;
+force dorb_grouptracker_Intervall = 5;
+force dorb_gui_arsenal_allowedradius = 25;
+dorb_gui_arsenal_fastArsenalLoading = true;
+dorb_gui_arsenal_forceReload = false;
+force dorb_gui_arsenal_level = 2;
+dorb_gui_crate_restrictAccess = false;
+force dorb_gui_teleport_to_lead_active = true;
+dorb_night_disableTIEquipment = false;
+dorb_night_enabled = true;
+dorb_night_levelAcc = 1;
+dorb_night_levelNVG = 1;
+dorb_night_propabilityDay = 0.5;
+dorb_night_randomizeDay = true;
+force dorb_whitelist_onlyPilotsFly = true;
+force dorb_whitelist_whitelistenabled = true;
 
 // TFAR - clientside settings
 TFAR_default_radioVolume = 7;
@@ -512,6 +471,3 @@ force TFAR_takingRadio = 2;
 force TFAR_Teamspeak_Channel_Name = "Server #1";
 force TFAR_Teamspeak_Channel_Password = "123";
 force tfar_terrain_interception_coefficient = 7;
-force kgg_punch_staminaToRemove = 10;
-force kgg_punch_hitChance = 0.5;
-force kgg_punch_unconsciousTimeout = 40;
